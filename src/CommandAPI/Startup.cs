@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using CommandAPI.Data;
 
 namespace CommandAPI
 {
@@ -17,6 +18,8 @@ namespace CommandAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();//registers sercices to enable the use of Controllers
+
+            services.AddScoped <ICommandAPIRepo,MockCommandAPIRepo>();// register IcommandAPIRepo and Mock...
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
